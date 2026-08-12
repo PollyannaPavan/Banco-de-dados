@@ -68,3 +68,17 @@ Para visualizar os bancos:
 ```bash
 \l
 ```
+-- -- Inserindo registros
+INSERT INTO MaioresCidades(nome,populacao)
+VALUES('Jacarta', '42000000');
+INSERT INTO MaioresCidades(nome,populacao)
+VALUES('Daca', '36000000');
+INSERT INTO MaioresCidades(nome,populacao)
+VALUES('Tóquio', '33000000');
+INSERT INTO MaioresCidades(nome,populacao)
+VALUES('Deli', '30000000');
+INSERT INTO MaioresCidades(nome,populacao)
+ VALUES('Xangai', '29000000');
+
+-- -- -- -- -- -- -- Consultando todos os dados
+SELECT * FROM MaioresCidades;
