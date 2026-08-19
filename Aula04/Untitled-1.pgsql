@@ -1,0 +1,14 @@
+-- Criando uma tabela:
+-- CREATE TABLE produtos(
+--     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+--     nome VARCHAR (50) NOT NULL,
+--     preco NUMERIC(10,2) NOT NULL,
+--     estoque INT NOT NULL DEFAULT 0
+-- );
+
+--Inserindo valores
+-- INSERT INTO produtos(nome,preco,estoque)
+-- VALUES('iPHONE 17', '10000.00', '15');
+
+--Consultando todos os dados
+-- SELECT * FROM produtos; 
