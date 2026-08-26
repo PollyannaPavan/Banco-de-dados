@@ -136,3 +136,45 @@ WHERE categoria = 'Monitores' OR categoria = 'Notebooks';
 SELECT nome, preco
 FROM produtos
 WHERE nome ILIKE 'monitor%';
+```
+- `nome ILIKE 'monitor%'`: Compara o campo ***nome*** de forma **case-insensitive** (sem diferenciar maiúsculas de minúsculas). O símbolo `%` no final significa "qualquer texto após a palavra monitor".
+
+
+
+
+-- Criar uma tabela com livros:
+CREATE TABLE livros(
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    nome VARCHAR (50) NOT NULL,
+    autor VARCHAR (50) NOT NULL,
+    preco DECIMAL (10,2) NOT NULL,
+    genero VARCHAR (50) NOT NULL,
+    estoque INT NOT NULL,
+    ano_publicacao VARCHAR (4) NOT NULL
+);
+
+
+
+
+
+## Atividade - Análise de Dados (Livraria)
+
+#### Crie um novo banco de dados para armazenar a tabela de livros
+![alt text](image.png)
+![alt text](image-1.png)
+
+#### Crie uma tabela com as colunas (id,nome,autor,preco,genero,estoque,ano_publicacao) 
+
+![alt text](image-2.png)
+
+### 1. Exiba todos os dados da tabela, mas limitando o resultado aos 10 primeiros registros.
+
+### 2. Exiba apenas as colunas titulo, autor e preco de todos os livros.
+
+### 3. Liste os gêneros distintos existentes na base, em ordem alfabética.
+
+### 4. Descubra quantos autores diferentes existem.
+
+### 5. Liste os 5 livros mais caros da base (título e preço).
+
+### 6. Liste os 5 livros com menor estoque (título e estoque).
