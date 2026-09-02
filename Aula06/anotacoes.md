@@ -159,22 +159,110 @@ CREATE TABLE livros(
 
 ## Atividade - Análise de Dados (Livraria)
 
-#### Crie um novo banco de dados para armazenar a tabela de livros
+>- Crie um novo banco de dados para armazenar a tabela de livros
 ![alt text](image.png)
 ![alt text](image-1.png)
 
-#### Crie uma tabela com as colunas (id,nome,autor,preco,genero,estoque,ano_publicacao) 
+>- Crie uma tabela com as colunas (id,nome,autor,preco,genero,estoque,ano_publicacao) 
+```sql
+CREATE TABLE livros(
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    nome VARCHAR (50) NOT NULL,
+    autor VARCHAR (50) NOT NULL,
+    preco DECIMAL (10,2) NOT NULL,
+    genero VARCHAR (50) NOT NULL,
+    estoque INT NOT NULL,
+    ano_publicacao INT NOT NULL
+);
+```
 
-![alt text](image-2.png)
+>1. Exiba todos os dados da tabela, mas limitando o resultado aos 10 primeiros registros.
+```sql
+SELECT * FROM livros LIMIT 10;
+```
+![alt text](image-3.png)
 
-### 1. Exiba todos os dados da tabela, mas limitando o resultado aos 10 primeiros registros.
+>2. Exiba apenas as colunas titulo, autor e preco de todos os livros.
+```sql
+SELECT nome, autor, preco FROM livros;
+```
+![alt text](image-4.png)
 
-### 2. Exiba apenas as colunas titulo, autor e preco de todos os livros.
+>3. Liste os gêneros distintos existentes na base, em ordem alfabética.
+```sql
+SELECT DISTINCT genero FROM livros ORDER BY genero;
+```
+![alt text](image-5.png)
 
-### 3. Liste os gêneros distintos existentes na base, em ordem alfabética.
+>4. Descubra quantos autores diferentes existem.
+```sql
+SELECT DISTINCT autor FROM livros;
+```
+![alt text](image-6.png)
 
-### 4. Descubra quantos autores diferentes existem.
+>5. Liste os 5 livros mais caros da base (título e preço).
+```sql
+SELECT nome, preco FROM livros
+ORDER BY preco DESC
+LIMIT 5;
+```
+![alt text](image-7.png)
 
-### 5. Liste os 5 livros mais caros da base (título e preço).
+>6. Liste os 5 livros com menor estoque (título e estoque).
+```sql
+SELECT nome, estoque FROM livros
+ORDER BY estoque ASC
+LIMIT 5;
+```
+![alt text](image-8.png)
 
-### 6. Liste os 5 livros com menor estoque (título e estoque).
+> - Bloco 2 — Filtros numéricos
+
+>7. Mostre titulo e estoque de todos os livros do gênero Técnico.
+```sql
+SELECT nome, estoque
+FROM livros
+WHERE genero = 'Técnico';
+```
+![alt text](image-9.png)
+
+>8. Mostre titulo e preco dos livros que custam mais de R$ 200,00.
+```sql
+SELECT nome, preco
+FROM livros
+WHERE preco > 200;
+```
+![alt text](image-10.png)
+
+>9. Mostre titulo e preco dos livros com preço entre R$ 40,00 e R$ 70,00.
+```sql
+SELECT nome, preco
+FROM livros
+WHERE preco BETWEEN 40 AND 70;
+```
+![alt text](image-11.png)
+
+>10. Mostre os livros com estoque abaixo de 5 unidades (situação de reposição urgente).
+```sql
+SELECT nome, estoque
+FROM livros
+WHERE estoque < 5;
+```
+![alt text](image-12.png)
+
+>11. Liste os livros publicados antes de 1900, ordenados do mais antigo para o mais recente.
+```sql
+SELECT nome, ano_publicacao
+FROM livros
+WHERE ano_publicacao < 1900
+ORDER BY ano_publicacao ASC;
+```
+![alt text](image-13.png)
+
+>12. Liste os livros publicados entre 2010 e 2020, mostrando título, ano e gênero.
+```sql
+SELECT nome, ano_publicacao, genero
+FROM livros
+WHERE ano_publicacao BETWEEN 2010 AND 2020;
+```
+![alt text](image-14.png)
